@@ -198,7 +198,7 @@ export default {
   margin-top: 15px;
 }
 .buttonsGroup {
-  margin: 30px 15px 15px 15px;
+  margin: 30px 0px 15px 0px;
   display: flex;
   justify-content: space-between;
 }
