@@ -20,6 +20,8 @@ import s_potion from "../assets/img/s_potion.jpg";
 import m_potion from "../assets/img/m_potion.jpg";
 import w_sword from "../assets/img/w_sword.jpg";
 
+import g_tooth from "../assets/img/g_tooth.jpg";
+
 export default {
   computed: {
     itemApiling() {
@@ -53,6 +55,8 @@ export default {
         return m_potion;
       } else if (item === "w_sword") {
         return w_sword;
+      } else if (item === "g_tooth") {
+        return g_tooth;
       }
     },
   }
