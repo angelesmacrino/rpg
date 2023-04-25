@@ -49,7 +49,7 @@ export default {
     setItemImg(item) {
       if (item === "s_potion") {
         return s_potion;
-      } else if (item === "M") {
+      } else if (item === "m_potion") {
         return m_potion;
       } else if (item === "L") {
         return l_potion;
