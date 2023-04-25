@@ -172,6 +172,8 @@ export default {
 #charButton {
   position: absolute;
   z-index: 1000;
+  width: 45px;
+  height: 45px;
 }
 .p-0 {
   padding: 0 !important;
