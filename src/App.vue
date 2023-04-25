@@ -14,7 +14,7 @@
         class="nes-btn is-warning"
         @click="toggleCharacterStats()"
       >
-        {{ lookingAtCharacter ? "C" : "M" }}
+        {{ lookingAtCharacter ? "M" : "C" }}
       </button>
 
       <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" />
