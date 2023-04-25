@@ -1,7 +1,7 @@
 <template>
   <div class="nes-container with-title is-centered statsContainer">
     <p class="title">
-      <b> Inventory </b>
+      <b> {{title}} </b>
     </p>
     <ul class="inventoryList">
       <li v-for="item in Object.keys(itemApiling)" :key="item" :style="{ backgroundImage: `url(${setItemImg(item)})` }">
@@ -39,6 +39,10 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    title: {
+      type: String,
+      required: true,
     },
   },
   methods: {

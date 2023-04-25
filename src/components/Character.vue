@@ -60,8 +60,8 @@
         </table>
       </div>
     </div>
-    <InventoryArray :items="characterStore.character.inventory" />
-    <InventoryArray :items="characterStore.character.loot" />
+    <InventoryArray title="Inventory" :items="characterStore.character.inventory" />
+    <InventoryArray title="Loot" :items="characterStore.character.loot" />
   </div>
 </template>
 
