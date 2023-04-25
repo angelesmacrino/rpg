@@ -18,7 +18,6 @@
 <script>
 import s_potion from "../assets/img/s_potion.jpg";
 import m_potion from "../assets/img/m_potion.jpg";
-import l_potion from "../assets/img/l_potion.jpg";
 import w_sword from "../assets/img/w_sword.jpg";
 
 export default {

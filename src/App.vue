@@ -224,7 +224,7 @@ export default {
 .inventoryList li small {
   position: absolute;
   bottom: 10px;
-  right: 5px;
+  left: 0;
   width: 5px;
   height: 5px;
   color: orangered;
