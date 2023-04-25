@@ -21,7 +21,7 @@ import m_potion from "../assets/img/m_potion.jpg";
 import w_sword from "../assets/img/w_sword.jpg";
 
 import g_tooth from "../assets/img/g_tooth.jpg";
-
+import orc_ear from "../assets/img/orc_ear.jpg";
 export default {
   computed: {
     itemApiling() {
@@ -57,6 +57,8 @@ export default {
         return w_sword;
       } else if (item === "g_tooth") {
         return g_tooth;
+      } else if (item === "orc_ear") {
+        return orc_ear;
       }
     },
   }
