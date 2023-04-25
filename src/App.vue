@@ -227,7 +227,7 @@ export default {
   left: 0;
   width: 5px;
   height: 5px;
-  color: orangered;
+  color: black;
 }
 
 .cityActionsContainer {
