@@ -23,6 +23,7 @@ a,
 .gameContainer {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: nowrap;
 }
 
