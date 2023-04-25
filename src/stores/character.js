@@ -16,7 +16,7 @@ export const useCharacterStore = defineStore("characterStore", {
       exp: 0,
       gold: 10,
       INVENTORY_LIMIT: 10,
-      inventory: ["w_sword", "s_potion"],
+      inventory: ["w_sword", "s_potion", "m_potion"],
       loot: [],
       equipped: [{ name: "w_sword", type: items.items["w_sword"].type }],
     };
