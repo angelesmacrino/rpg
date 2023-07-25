@@ -4,7 +4,12 @@
       <b> {{title}} </b>
     </p>
     <ul class="inventoryList">
-      <li v-for="item in Object.keys(itemApiling)" :key="item" :style="{ backgroundImage: `url(${setItemImg(item)})` }">
+      <li 
+        v-for="item in Object.keys(itemApiling)" 
+        :key="item" 
+        :style="{ backgroundImage: `url(${setItemImg(item)})`}"
+        @click="useItem(item)"
+      >
         <small class="itemQuantity">
           <b>
             {{ itemApiling[item] }} 
@@ -18,6 +23,7 @@
 <script>
 import s_potion from "../assets/img/s_potion.jpg";
 import m_potion from "../assets/img/m_potion.jpg";
+import l_potion from "../assets/img/l_potion.jpg";
 import w_sword from "../assets/img/w_sword.jpg";
 
 import g_tooth from "../assets/img/g_tooth.jpg";
@@ -53,6 +59,8 @@ export default {
         return s_potion;
       } else if (item === "m_potion") {
         return m_potion;
+      } else if (item === "l_potion") {
+        return l_potion;
       } else if (item === "w_sword") {
         return w_sword;
       } else if (item === "g_tooth") {
@@ -60,6 +68,9 @@ export default {
       } else if (item === "orc_ear") {
         return orc_ear;
       }
+    },
+    useItem(item) {
+      
     },
   }
 };

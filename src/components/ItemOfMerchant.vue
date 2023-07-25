@@ -14,6 +14,7 @@ import items from "../assets/items.json";
 
 import s_potion from "../assets/img/s_potion.jpg";
 import m_potion from "../assets/img/m_potion.jpg";
+import l_potion from "../assets/img/l_potion.jpg";
 
 export default {
   data() {
@@ -31,6 +32,8 @@ export default {
         return s_potion;
       } else if (item === "m_potion") {
         return m_potion;
+      } else if (item === "l_potion") {
+        return l_potion;
       }
     }
   }

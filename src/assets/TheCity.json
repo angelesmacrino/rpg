@@ -14,7 +14,8 @@
     "merchant": {
         "items": [
             "s_potion",
-            "m_potion"
+            "m_potion",
+            "l_potion"
         ]
     }
 }

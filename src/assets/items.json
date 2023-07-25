@@ -16,6 +16,14 @@
             "health": 20,
             "price": 20
         },
+        "l_potion": {
+            "id": "l_potion",
+            "name": "Large healing potion",
+            "description": "A potion that restores 30 points of health. Who needs hospitals when you have one of these bad boys?",
+            "type": "consumable",
+            "health": 30,
+            "price": 30
+        },
         "w_sword": {
             "id": "w_sword",
             "name": "Wooden sword",
