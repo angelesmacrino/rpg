@@ -44,7 +44,12 @@ export default {
       this.$emit("leaveMerchant");
     },
     getItemInfo(item) {
-      this.itemInfo = this.items.items[item];
+      const newInfo = this.items.items[item];
+      if (this.itemInfo === newInfo) {
+        this.itemInfo = null;
+      } else {
+        this.itemInfo = this.items.items[item];
+      }
     },
     buyItem() {
       this.spendGold(this.itemInfo.price);
