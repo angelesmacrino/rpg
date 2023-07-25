@@ -5,7 +5,6 @@
     :style="{ backgroundImage: `url(${setItemImg(item)})` }"
     @click="getItemInfo(item)"
   >
-    {{ items.items[item].name[0] }}
   </li>
 </template>
 
