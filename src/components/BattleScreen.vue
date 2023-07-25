@@ -43,17 +43,12 @@
             </button>
             <button
               class="nes-btn nowrap"
-            >
-              Drink potion
-            </button>
-            <!--<button
-              class="nes-btn nowrap"
               @click="drinkPotion('s_potion')"
               :disabled="
                 remainingHealthPotions('s_potion') === 0 || !playerTurn
               "
             >
-              Drink small potion
+              <img :src="s_potion" alt="">
             </button>
             <button
               class="nes-btn nowrap"
@@ -72,7 +67,7 @@
               "
             >
               Drink large potion
-            </button> -->
+            </button>
             <button
               class="playerActionButton nes-btn nowrap"
               @click="tryToFlee()"
@@ -95,6 +90,10 @@
 <script>
 import HealthBar from "./HealthBar.vue";
 import items from "../assets/items.json";
+
+import s_potion from "../assets/img/s_potion.jpg";
+import m_potion from "../assets/img/m_potion.jpg";
+import l_potion from "../assets/img/l_potion.jpg";
 
 import { useCharacterStore } from "@/stores/character";
 import { mapState, mapActions } from "pinia";
