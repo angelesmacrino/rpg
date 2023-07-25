@@ -385,4 +385,8 @@ progress[value]::-webkit-progress-value {
   height: 137px;
   resize: none;
 }
+
+button img {
+  width: 25px
+}
 </style>
