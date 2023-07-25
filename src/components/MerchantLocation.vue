@@ -1,9 +1,6 @@
 <template>
   <p class="smallerParagraph m-0">{{ message }}</p>
-  <button class="nes-btn" @click="toggleBuyScreen()">
-    Browse items to buy
-  </button>
-  <div v-if="lookingAtItems">
+  <div>
     <div v-if="itemInfo">
       <ItemOfMerchantInfo :item="itemInfo" @buyItem="buyItem()" />
     </div>
@@ -45,9 +42,6 @@ export default {
     ...mapActions(useCharacterStore, ["spendGold", "addItemToInventory"]),
     leaveMerchant() {
       this.$emit("leaveMerchant");
-    },
-    toggleBuyScreen() {
-      this.lookingAtItems = !this.lookingAtItems;
     },
     getItemInfo(item) {
       this.itemInfo = this.items.items[item];
