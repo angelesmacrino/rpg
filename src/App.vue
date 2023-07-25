@@ -1,5 +1,6 @@
 <template>
   <div class="gameContainer">
+    asd
     <Tileboard
       v-if="!gameIsOver"
       @monsterBattle="monsterBattle"
