@@ -43,6 +43,11 @@
             </button>
             <button
               class="nes-btn nowrap"
+            >
+              Drink potion
+            </button>
+            <!--<button
+              class="nes-btn nowrap"
               @click="drinkPotion('s_potion')"
               :disabled="
                 remainingHealthPotions('s_potion') === 0 || !playerTurn
@@ -59,6 +64,15 @@
             >
               Drink medium potion
             </button>
+            <button
+              class="nes-btn nowrap"
+              @click="drinkPotion('l_potion')"
+              :disabled="
+                remainingHealthPotions('l_potion') === 0 || !playerTurn
+              "
+            >
+              Drink large potion
+            </button> -->
             <button
               class="playerActionButton nes-btn nowrap"
               @click="tryToFlee()"
