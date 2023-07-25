@@ -48,7 +48,7 @@
                 remainingHealthPotions('s_potion') === 0 || !playerTurn
               "
             >
-              <img :src="setItemImg('s_potion')" alt="">
+              <img :src="setItemImg('s_potion')" alt="small potion">
             </button>
             <button
               class="nes-btn nowrap"
@@ -57,7 +57,7 @@
                 remainingHealthPotions('m_potion') === 0 || !playerTurn
               "
             >
-              Drink medium potion
+            <img :src="setItemImg('m_potion')" alt="medium potion">
             </button>
             <button
               class="nes-btn nowrap"
@@ -66,7 +66,7 @@
                 remainingHealthPotions('l_potion') === 0 || !playerTurn
               "
             >
-              Drink large potion
+            <img :src="setItemImg('l_potion')" alt="large potion">
             </button>
             <button
               class="playerActionButton nes-btn nowrap"
