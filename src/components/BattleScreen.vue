@@ -48,7 +48,7 @@
                 remainingHealthPotions('s_potion') === 0 || !playerTurn
               "
             >
-              <img :src="s_potion" alt="">
+              <img :src="setItemImg('s_potion')" alt="">
             </button>
             <button
               class="nes-btn nowrap"
@@ -148,6 +148,15 @@ export default {
     this.decideInitialTurn();
   },
   methods: {
+    setItemImg(item) {
+      if (item === "s_potion") {
+        return s_potion;
+      } else if (item === "m_potion") {
+        return m_potion;
+      } else if (item === "l_potion") {
+        return l_potion;
+      }
+    },
     remainingHealthPotions(potion) {
       let potions = 0;
       this.characterStore.character.inventory.forEach((item) => {
