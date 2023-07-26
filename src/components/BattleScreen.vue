@@ -20,7 +20,7 @@
           </div>
           <img
             class="monsterImg"
-            src="https://picsum.photos/id/237/200/200"
+            :src="setItemImg(monster.name.toLowerCase())"
             :alt="monster.name"
           />
         </div>
