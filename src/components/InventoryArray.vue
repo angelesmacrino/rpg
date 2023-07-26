@@ -28,6 +28,7 @@ import w_sword from "../assets/img/w_sword.jpg";
 
 import g_tooth from "../assets/img/g_tooth.jpg";
 import orc_ear from "../assets/img/orc_ear.jpg";
+import troll_hide from "../assets/img/troll_hide.jpg";
 export default {
   computed: {
     itemApiling() {
@@ -67,6 +68,8 @@ export default {
         return g_tooth;
       } else if (item === "orc_ear") {
         return orc_ear;
+      } else if (item === "troll_hide") {
+        return troll_hide;
       }
     },
     useItem(item) {
