@@ -3,6 +3,7 @@
     <div class="battleScreen nes-container is-rounded">
       <div v-if="!victoryScreen">
         <h3>{{ monster.name }} lvl. {{ monster.level }}</h3>
+        {{ monster }}
         <div class="monsterContainer">
           <div class="healthAndMessagesContainer">
             <HealthBar
@@ -94,6 +95,7 @@ import items from "../assets/items.json";
 import s_potion from "../assets/img/s_potion.jpg";
 import m_potion from "../assets/img/m_potion.jpg";
 import l_potion from "../assets/img/l_potion.jpg";
+import goblin from "../assets/img/goblin.jpg";
 
 import { useCharacterStore } from "@/stores/character";
 import { mapState, mapActions } from "pinia";
@@ -155,6 +157,8 @@ export default {
         return m_potion;
       } else if (item === "l_potion") {
         return l_potion;
+      } else if (item === "goblin") {
+        return goblin;
       }
     },
     remainingHealthPotions(potion) {
