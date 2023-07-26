@@ -3,7 +3,6 @@
     <div class="battleScreen nes-container is-rounded">
       <div v-if="!victoryScreen">
         <h3>{{ monster.name }} lvl. {{ monster.level }}</h3>
-        {{ monster }}
         <div class="monsterContainer">
           <div class="healthAndMessagesContainer">
             <HealthBar
