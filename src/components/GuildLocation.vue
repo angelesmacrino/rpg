@@ -26,9 +26,9 @@ export default {
   },
   methods: {
     askAboutDiploma() {
-      this.message = `With the Certified Adventurer™ Diploma you are officially allowed to carry 
-      a metal sword and a shield, take quests from other people and even leave the province to try to banquish The Great Evil™. \n 
-      Procedure fees: ${this.GOBLIN_TOOTHS} goblin teeth, ${this.ORC_EARS} orc ears and ${this.TROLL_HIDES} troll hides.`;
+      this.message = `With the Certified Adventurer™ Diploma, you are officially allowed to carry a metal sword and a shield, 
+      take quests from other people, and even leave the province to try to banish The Great Evil™. 
+      Procedure fees:  ${this.GOBLIN_TOOTHS} goblin teeth, ${this.ORC_EARS} orc ears, and ${this.TROLL_HIDES} troll hides.`
     },
     leaveOffice() {
       this.$emit("leaveOffice");
