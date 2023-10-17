@@ -1,11 +1,13 @@
 <template>
  <div class="gameContainer">
+  <div class="nes-container">
     <Tileboard
       v-if="!gameIsOver"
       :ref="'tileBoardRef'"
       @monsterBattle="monsterBattle"
       :inBattle="inBattle"
     />
+  </div>
     <div
       v-if="!gameIsOver"
       class="infoScreen"
@@ -360,5 +362,9 @@ nav a:first-of-type {
 .movementCell {
   width:50px;
   height: 50px;
+}
+
+.gameContainer .nes-container {
+  padding: 0
 }
 </style>
