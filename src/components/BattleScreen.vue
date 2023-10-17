@@ -287,7 +287,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
   padding: 20px;
   background-color: white;
   z-index: 4000;
@@ -295,6 +294,39 @@ export default {
   flex-direction: column;
   justify-content: start;
   align-content: center;
+}
+.monsterContainer {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .battleScreen {
+    width: 90%;
+  }
+  .monsterContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .buttonsContainer button {
+  padding: 0!important;
+}
+}
+@media (min-width: 768px) {
+  .battleScreen {
+    width: 600px;
+  }
+  .monsterContainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.buttonsContainer {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .victoryScreen {
@@ -312,22 +344,11 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.monsterContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+
 .playerActionButton {
   margin-left: 5px;
 }
-.buttonsContainer {
-  margin-top: 5px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-}
+
 .messageScreen {
   display: flex;
   flex-direction: column;
