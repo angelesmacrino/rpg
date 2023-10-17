@@ -166,17 +166,30 @@ export default {
 .tileWorld {
   padding: 15px;
 }
+
+@media (min-width: 1024px) {
+  .tileWorld {
+    width: 40rem;
+    height: 40rem;
+  }
+}
+@media (max-width: 1024px) {
+  .tileWorld {
+    width: 22rem;
+    height: 22rem;
+  }
+}
 .row {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 10%;
   background-color: #fff;
 }
 .cell {
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   border: 1px solid #ddd;
 }

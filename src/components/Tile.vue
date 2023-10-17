@@ -45,8 +45,9 @@ export default {
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   text-align: center;
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
 }
 .tileCity {
   background-color: #91bdff;

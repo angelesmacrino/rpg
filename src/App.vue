@@ -1,5 +1,5 @@
 <template>
-  <div class="gameContainer">
+ <div class="gameContainer">
     <Tileboard
       v-if="!gameIsOver"
       @monsterBattle="monsterBattle"
@@ -7,7 +7,7 @@
     />
     <div
       v-if="!gameIsOver"
-      style="padding: 15px; min-width: 460px; max-width: 460px"
+      class="infoScreen"
     >
       <button
         id="charButton"
@@ -21,7 +21,7 @@
 
       <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
     </div>
-    <BattleScreen
+   <BattleScreen
       v-if="inBattle"
       :monster="battledMonster"
       @finishBattle="finishBattle()"
@@ -172,8 +172,8 @@ export default {
 #charButton {
   position: absolute;
   z-index: 1000;
-  width: 45px;
-  height: 45px;
+  width: 25px;
+  height: 25px;
 }
 .p-0 {
   padding: 0 !important;
@@ -305,5 +305,9 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+
+.infoScreen {
+  padding: 15px; 
 }
 </style>
