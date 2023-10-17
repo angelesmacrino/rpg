@@ -134,7 +134,7 @@ export default {
         if (
           ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)
         ) {
-          e.preventDefault();
+          e?.preventDefault?.();
         }
         switch (e.key) {
           case "ArrowUp":

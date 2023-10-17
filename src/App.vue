@@ -2,6 +2,7 @@
  <div class="gameContainer">
     <Tileboard
       v-if="!gameIsOver"
+      :ref="'tileBoardRef'"
       @monsterBattle="monsterBattle"
       :inBattle="inBattle"
     />
@@ -9,6 +10,41 @@
       v-if="!gameIsOver"
       class="infoScreen"
     >
+    <div class="movementGrid">
+      <div class="upRow">
+        <div class="movementCell">
+
+        </div>
+        <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
+          Ar
+        </button>
+        <div class="movementCell">
+
+        </div>
+      </div>
+      <div class="sidesRow">
+        <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
+          I
+        </button>
+        <div class="movementCell">
+
+        </div>
+        <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
+          D
+        </button>
+      </div>
+      <div class="downRow">
+        <div class="movementCell">
+          
+        </div>
+        <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
+          Ab
+        </button>
+        <div class="movementCell">
+          
+        </div>
+      </div>
+    </div>
       <button
         id="charButton"
         class="nes-btn is-warning"
@@ -18,7 +54,6 @@
       </button>
 
       <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" />
-
       <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
     </div>
    <BattleScreen
@@ -159,6 +194,9 @@ export default {
       this.battledMonster = null;
       this.gameIsOver = true;
     },
+    moveByClick(key) {
+      this.$refs.tileBoardRef.moveCharacter({ key });
+    }
   },
 };
 </script>
@@ -309,5 +347,18 @@ nav a:first-of-type {
 
 .infoScreen {
   padding: 15px; 
+}
+.movementGrid {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.movementGrid div {
+  display: flex
+}
+.movementCell {
+  width:50px;
+  height: 50px;
 }
 </style>
