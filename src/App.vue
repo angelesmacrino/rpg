@@ -18,7 +18,7 @@
 
         </div>
         <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
-          Ar
+          <img :src="setImg('up_arrow')" alt="up_arrow" />
         </button>
         <div class="movementCell">
 
@@ -26,13 +26,14 @@
       </div>
       <div class="sidesRow">
         <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
-          I
+          <img :src="setImg('left_arrow')" alt="up_arrow" />
         </button>
         <div class="movementCell">
 
         </div>
         <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
-          D
+          <img :src="setImg('right_arrow')" alt="right_arrow" />
+
         </button>
       </div>
       <div class="downRow">
@@ -40,7 +41,7 @@
           
         </div>
         <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
-          Ab
+          <img :src="setImg('down_arrow')" alt="down_arrow" />
         </button>
         <div class="movementCell">
           
@@ -83,6 +84,11 @@ import GameOver from "./components/GameOver.vue";
 import CurrentLocationInfoAndStats from "./components/CurrentLocationInfoAndStats.vue";
 import { useCharacterStore } from "@/stores/character";
 import { mapState, mapActions } from "pinia";
+
+import up_arrow from "./assets/img/up_arrow.png";
+import down_arrow from "./assets/img/down_arrow.png";
+import left_arrow from "./assets/img/left_arrow.png";
+import right_arrow from "./assets/img/right_arrow.png";
 
 
 export default {
@@ -198,6 +204,17 @@ export default {
     },
     moveByClick(key) {
       this.$refs.tileBoardRef.moveCharacter({ key });
+    },
+    setImg(img) {
+      if (img === "up_arrow") {
+        return up_arrow;
+      } else if (img === "down_arrow") {
+        return down_arrow;
+      } else if (img === "left_arrow") {
+        return left_arrow;
+      } else if (img === "right_arrow") {
+        return right_arrow;
+      }
     }
   },
 };
@@ -363,8 +380,17 @@ nav a:first-of-type {
   width:50px;
   height: 50px;
 }
+.movementCell img {
+  width: 30px;
+}
 
+.movementCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .gameContainer .nes-container {
   padding: 0
 }
+
 </style>
