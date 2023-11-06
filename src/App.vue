@@ -1,78 +1,80 @@
 <template>
- <div class="gameContainer">
-
-  <div class="nes-container">
-    <Tileboard
-      v-if="!gameIsOver"
-      :ref="'tileBoardRef'"
-      @monsterBattle="monsterBattle"
-      :inBattle="inBattle"
-    />
+  <div class="game-title">
+    <h1>Yet another RPG</h1>
   </div>
-    <div
-      v-if="!gameIsOver"
-      class="infoScreen"
-    >
-    <div class="movementGrid">
-      <div class="upRow">
-        <div class="movementCell">
+ <div class="gameContainer">
+  <div class="nes-container">
+  <Tileboard
+  v-if="!gameIsOver"
+  :ref="'tileBoardRef'"
+  @monsterBattle="monsterBattle"
+  :inBattle="inBattle"
+  />
+  </div>
+  <div
+  v-if="!gameIsOver"
+  class="infoScreen"
+  >
+  <div class="movementGrid">
+  <div class="upRow">
+    <div class="movementCell">
 
-        </div>
-        <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
-          <img :src="setImg('up_arrow')" alt="up_arrow" />
-        </button>
-        <div class="movementCell">
-
-        </div>
-      </div>
-      <div class="sidesRow">
-        <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
-          <img :src="setImg('left_arrow')" alt="up_arrow" />
-        </button>
-        <div class="movementCell">
-
-        </div>
-        <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
-          <img :src="setImg('right_arrow')" alt="right_arrow" />
-
-        </button>
-      </div>
-      <div class="downRow">
-        <div class="movementCell">
-          
-        </div>
-        <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
-          <img :src="setImg('down_arrow')" alt="down_arrow" />
-        </button>
-        <div class="movementCell">
-          
-        </div>
-      </div>
     </div>
-      <button
-        id="charButton"
-        class="nes-btn is-warning"
-        @click="toggleCharacterStats()"
-      >
-        {{ lookingAtCharacter ? "M" : "C" }}
-      </button>
+    <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
+      <img :src="setImg('up_arrow')" alt="up_arrow" />
+    </button>
+    <div class="movementCell">
 
-      <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" />
-      <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
     </div>
-   <BattleScreen
-      v-if="inBattle"
-      :monster="battledMonster"
-      @finishBattle="finishBattle()"
-      @gameOver="gameOver()"
-      @fleedBattle="fleedBattle()"
-    />
-    <AfterBattleModal
-      v-if="afterBattleModal"
-      :event="after_battle_event"
-      @closeModal="closeAfterBattleModal"
-    />
-    <GameOver v-if="gameIsOver" />
+  </div>
+  <div class="sidesRow">
+    <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
+      <img :src="setImg('left_arrow')" alt="up_arrow" />
+    </button>
+    <div class="movementCell">
+
+    </div>
+    <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
+      <img :src="setImg('right_arrow')" alt="right_arrow" />
+
+    </button>
+  </div>
+  <div class="downRow">
+    <div class="movementCell">
+      
+    </div>
+    <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
+      <img :src="setImg('down_arrow')" alt="down_arrow" />
+    </button>
+    <div class="movementCell">
+      
+    </div>
+  </div>
+  </div>
+  <button
+    id="charButton"
+    class="nes-btn is-warning"
+    @click="toggleCharacterStats()"
+  >
+    {{ lookingAtCharacter ? "M" : "C" }}
+  </button>
+
+  <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" />
+  <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
+  </div>
+  <BattleScreen
+  v-if="inBattle"
+  :monster="battledMonster"
+  @finishBattle="finishBattle()"
+  @gameOver="gameOver()"
+  @fleedBattle="fleedBattle()"
+  />
+  <AfterBattleModal
+  v-if="afterBattleModal"
+  :event="after_battle_event"
+  @closeModal="closeAfterBattleModal"
+  />
+  <GameOver v-if="gameIsOver" />
   </div>
 </template>
 
@@ -402,4 +404,7 @@ nav a:first-of-type {
   padding: 0
 }
 
+.game-title {
+  text-align: center;
+}
 </style>
