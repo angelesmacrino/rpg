@@ -41,60 +41,6 @@
             </li>
           </ul>
         </div>
-       <!--<table>
-          <tbody>
-            <tr>
-              <td>
-                <ul class="nes-list is-disc">
-                  <li class="stat">
-                    Level: {{ characterStore.character.level }}
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <ul class="nes-list is-disc">
-                  <li class="stat">
-                    Experience: {{ characterStore.character.exp }}
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <ul class="nes-list is-disc">
-                  <li class="stat">
-                    Speed: {{ characterStore.character.speed }}
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <ul class="nes-list is-disc">
-                  <li class="stat">
-                    Attack: {{ characterStore.character.attack }}
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <ul class="nes-list is-disc">
-                  <li class="stat">
-                    Health: {{ characterStore.character.health }} /
-                    {{ characterStore.character.max_health }}
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <ul class="nes-list is-disc">
-                  <li class="stat">
-                    Gold: {{ characterStore.character.gold }}
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      --> 
       </div>
     </div>
     <InventoryArray title="Inventory" :items="characterStore.character.inventory" />
