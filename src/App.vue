@@ -262,6 +262,12 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .buttonsGroup {
+    flex-direction: column; 
+  }
+}
 .inventoryList {
   padding: 0;
   text-align: start;
@@ -366,8 +372,10 @@ nav a:first-of-type {
 }
 
 .infoScreen {
+  max-width: 600px;
   padding: 15px; 
 }
+
 .movementGrid {
   display:flex;
   flex-direction: column;
