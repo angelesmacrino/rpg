@@ -4,8 +4,44 @@
       <p class="title">
         <b> Stats of {{ characterStore.character.name }} </b>
       </p>
-      <div class="nes-table-responsive">
-        <table>
+      <div class="nes-table-responsive playerStats">
+        <div>
+          <ul class="nes-list is-disc">
+            <li class="stat">
+              Level: {{ characterStore.character.level }}
+            </li>
+          </ul>
+          <ul class="nes-list is-disc">
+            <li class="stat">
+              Experience: {{ characterStore.character.exp }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="nes-list is-disc">
+            <li class="stat">
+              Speed: {{ characterStore.character.speed }}
+            </li>
+          </ul>
+          <ul class="nes-list is-disc">
+            <li class="stat">
+              Attack: {{ characterStore.character.attack }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="nes-list is-disc">
+            <li class="stat">
+              Health: {{ characterStore.character.health }}/{{characterStore.character.max_health }}
+            </li>
+          </ul>
+          <ul class="nes-list is-disc">
+            <li class="stat">
+              Gold: {{ characterStore.character.gold }}
+            </li>
+          </ul>
+        </div>
+       <!--<table>
           <tbody>
             <tr>
               <td>
@@ -58,13 +94,13 @@
             </tr>
           </tbody>
         </table>
+      --> 
       </div>
     </div>
     <InventoryArray title="Inventory" :items="characterStore.character.inventory" />
     <InventoryArray title="Loot" :items="characterStore.character.loot" />
   </div>
 </template>
-
 <script>
 import InventoryArray from "./InventoryArray.vue";
 import items from "../assets/items.json";
@@ -113,4 +149,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.playerStats div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.playerStats div ul{
+  width: 5rem
+}
+</style>
