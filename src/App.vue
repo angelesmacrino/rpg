@@ -1,5 +1,6 @@
 <template>
  <div class="gameContainer">
+
   <div class="nes-container">
     <Tileboard
       v-if="!gameIsOver"
