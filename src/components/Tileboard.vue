@@ -162,6 +162,7 @@ export default {
   height: 15px;
   background-color: red;
   margin: auto;
+  border: 2px solid black;
 }
 .tileWorld {
   padding: 15px;
