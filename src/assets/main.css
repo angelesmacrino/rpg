@@ -25,6 +25,7 @@ a,
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  z-index: 100000!important;
 }
 
 @media (max-width: 1024px) {

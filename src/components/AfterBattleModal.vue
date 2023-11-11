@@ -48,12 +48,13 @@ export default {
   transform: translate(-50%, -50%);
   width: 400px;
   /* height: 200px; */
-  padding: 20px;
+  padding: 20px!important;
   background-color: white;
   z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-content: center;
+  z-index: 10000000;
 }
 </style>
