@@ -96,19 +96,8 @@ export default {
       this.$emit("levelUp");
     },
     usePotion(potion) {
-      const heal = this.items[potion]
-      console.log(this.items.items[potion].health)
-    /*  if (potion === "s_potion") {
-        this.characterStore.character.health += 10;
-      } else if (potion === "m_potion") {
-        this.characterStore.character.health += 20;
-      } else if (potion === "l_potion") {
-        this.characterStore.character.health += 30;
-      }
-      this.characterStore.character.inventory.splice(
-        this.characterStore.character.inventory.indexOf(potion),
-        1
-      );*/
+      const heal = this.items.items[potion].health
+      this.characterStore.healAmount(heal)
       this.characterStore.removeItemFromInventory(potion)
     },
   },
