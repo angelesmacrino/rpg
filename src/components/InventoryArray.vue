@@ -33,7 +33,6 @@ export default {
   computed: {
     itemApiling() {
       return this.items.reduce((acc, item) => {
-        console.log(item);
         if (acc[item]) {
           acc[item] += 1;
         } else {
@@ -73,7 +72,9 @@ export default {
       }
     },
     useItem(item) {
-      
+      if ([ "s_potion", "m_potion", "l_potion" ].includes(item)) {
+        this.$emit("usePotion", item);
+      }
     },
   }
 };

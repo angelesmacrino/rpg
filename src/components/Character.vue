@@ -43,7 +43,11 @@
         </div>
       </div>
     </div>
-    <InventoryArray title="Inventory" :items="characterStore.character.inventory" />
+    <InventoryArray
+      @usePotion="usePotion($event)" 
+      title="Inventory" 
+      :items="characterStore.character.inventory" 
+    />
     <InventoryArray title="Loot" :items="characterStore.character.loot" />
   </div>
 </template>
@@ -91,6 +95,22 @@ export default {
       character.speed += character.speed_per_level;
       this.$emit("levelUp");
     },
+    usePotion(potion) {
+      const heal = this.items[potion]
+      console.log(this.items.items[potion].health)
+    /*  if (potion === "s_potion") {
+        this.characterStore.character.health += 10;
+      } else if (potion === "m_potion") {
+        this.characterStore.character.health += 20;
+      } else if (potion === "l_potion") {
+        this.characterStore.character.health += 30;
+      }
+      this.characterStore.character.inventory.splice(
+        this.characterStore.character.inventory.indexOf(potion),
+        1
+      );*/
+      this.characterStore.removeItemFromInventory(potion)
+    },
   },
 };
 </script>
@@ -101,7 +121,5 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.playerStats div ul{
-  width: 5rem
-}
+
 </style>
