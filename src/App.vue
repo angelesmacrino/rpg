@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!gameIsOver  && !gameWon">
+  <div v-if="isGameActive">
     <div class="game-title">
       <h1>Yet another RPG</h1>
     </div>
@@ -20,7 +20,7 @@
   
       </div>
       <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
-        <img :src="setImg('up_arrow')" alt="up_arrow" />
+        <img :src="getImage('up_arrow')" alt="up_arrow" />
       </button>
       <div class="movementCell">
   
@@ -28,13 +28,13 @@
     </div>
     <div class="sidesRow">
       <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
-        <img :src="setImg('left_arrow')" alt="left_arrow" />
+        <img :src="getImage('left_arrow')" alt="left_arrow" />
       </button>
       <div class="movementCell">
   
       </div>
       <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
-        <img :src="setImg('right_arrow')" alt="right_arrow" />
+        <img :src="getImage('right_arrow')" alt="right_arrow" />
   
       </button>
     </div>
@@ -43,7 +43,7 @@
         
       </div>
       <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
-        <img :src="setImg('down_arrow')" alt="down_arrow" />
+        <img :src="getImage('down_arrow')" alt="down_arrow" />
       </button>
       <div class="movementCell">
         
@@ -114,6 +114,9 @@ export default {
     ...mapState(useCharacterStore, {
       characterStore: (state) => state,
     }),
+    isGameActive() {
+      return !this.gameIsOver && !this.gameWon;
+    },
   },
   components: {
     Tileboard,
@@ -159,26 +162,18 @@ export default {
     },
     setMonsterLevel(battledMonster) {
       const randomNumber = Math.floor(Math.random() * 2);
-      switch (this.characterStore.currentTerrain) {
-        case "P": {
-          if (battledMonster.name === "Orc") {
-            battledMonster.level = 1;
-          } else {
-            battledMonster.level = randomNumber + 1;
-          }
-          break;
-        }
-        case "F": {
-          if (battledMonster.name === "Troll") {
-            battledMonster.level = 1;
-          }
-          battledMonster.level = randomNumber + 2;
-          break;
-        }
-        case "M": {
-          battledMonster.level = randomNumber + 4;
-          break;
-        }
+      const isTerrainP = this.characterStore.currentTerrain === "P";
+      const isTerrainF = this.characterStore.currentTerrain === "F";
+      const isTerrainM = this.characterStore.currentTerrain === "M";
+
+      if (isTerrainP && battledMonster.name === "Orc" || isTerrainF && battledMonster.name === "Troll") {
+        battledMonster.level = 1;
+      } else if (isTerrainP) {
+        battledMonster.level = randomNumber + 1;
+      } else if (isTerrainF) {
+        battledMonster.level = randomNumber + 2;
+      } else if (isTerrainM) {
+        battledMonster.level = randomNumber + 4;
       }
     },
     setMonsterAttributes(battledMonster) {
@@ -231,16 +226,15 @@ export default {
     moveByClick(key) {
       this.$refs.tileBoardRef.moveCharacter({ key });
     },
-    setImg(img) {
-      if (img === "up_arrow") {
-        return up_arrow;
-      } else if (img === "down_arrow") {
-        return down_arrow;
-      } else if (img === "left_arrow") {
-        return left_arrow;
-      } else if (img === "right_arrow") {
-        return right_arrow;
-      }
+    getImage(img) {
+      const images = {
+        up_arrow: up_arrow,
+        down_arrow: down_arrow,
+        left_arrow: left_arrow,
+        right_arrow: right_arrow
+      };
+
+      return images[img];
     }
   },
 };
