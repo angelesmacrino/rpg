@@ -34,34 +34,32 @@ export default {
       this.$emit("leaveOffice");
     },
     requestDiploma() {
-      let goblinTooths = 0;
-      let orcEars = 0;
-      let trollHides = 0;
+      let lootCounts = {
+        "g_tooth": 0,
+        "orc_ear": 0,
+        "troll_hide": 0
+      };
+
       this.characterStore.character.loot.forEach((loot) => {
-        if (loot === "g_tooth") {
-          goblinTooths += 1;
-        }
-        if (loot === "orc_ear") {
-          orcEars += 1;
-        }
-        if (loot === "troll_hide") {
-          trollHides += 1;
+        if (lootCounts.hasOwnProperty(loot)) {
+          lootCounts[loot] += 1;
         }
       });
+
       if (
-        goblinTooths === this.GOBLIN_TOOTHS &&
-        orcEars === this.ORC_EARS &&
-        trollHides === this.TROLL_HIDES
+        lootCounts["g_tooth"] === this.GOBLIN_TOOTHS &&
+        lootCounts["orc_ear"] === this.ORC_EARS &&
+        lootCounts["troll_hide"] === this.TROLL_HIDES
       ) {
-        let vm = this.$parent
+        let vm = this.$parent;
         while(vm) {
-          vm.$emit('victory')
-          vm = vm.$parent
+          vm.$emit('victory');
+          vm = vm.$parent;
         }
       } else {
         this.message = "You don't have the required items to get a diploma.";
       }
-    },
+    }
   },
 };
 </script>
