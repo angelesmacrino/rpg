@@ -61,6 +61,7 @@
     <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" @victory="victory" />
     <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
     </div>
+   
     <BattleScreen
     v-if="inBattle"
     :monster="battledMonster"
@@ -83,6 +84,12 @@
     v-if="gameWon" 
     @restartGame="restartGame"
   />
+  <footer>
+    © 2023 - Mishulina. All rights reserved. CSS by 
+    <a href="https://nostalgic-css.github.io/NES.css/" rel="noreferrer nofollow" target="_blank">
+      NES.css
+    </a>
+  </footer>
 </template>
 
 <script>
