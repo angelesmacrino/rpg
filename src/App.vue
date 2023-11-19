@@ -73,9 +73,12 @@
     :event="after_battle_event"
     @closeModal="closeAfterBattleModal"
     />
+    </div>
   </div>
-  <GameOver v-if="gameIsOver" />
-  </div>
+  <GameOver 
+    v-if="gameIsOver" 
+    @restartGame="restartGame" 
+  />
 </template>
 
 <script>
@@ -204,6 +207,10 @@ export default {
       this.inBattle = false;
       this.battledMonster = null;
       this.gameIsOver = true;
+    },
+    restartGame() {
+      this.gameIsOver = false;
+      window.location.reload();
     },
     moveByClick(key) {
       this.$refs.tileBoardRef.moveCharacter({ key });
