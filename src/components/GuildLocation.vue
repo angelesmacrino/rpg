@@ -13,9 +13,9 @@ import { mapState } from "pinia";
 export default {
   data() {
     return {
-      GOBLIN_TOOTHS: 40,
-      ORC_EARS: 20,
-      TROLL_HIDES: 5,
+      GOBLIN_TOOTHS: 1,
+      ORC_EARS: 1,
+      TROLL_HIDES: 1,
       message: "",
     };
   },
@@ -53,7 +53,11 @@ export default {
         orcEars === this.ORC_EARS &&
         trollHides === this.TROLL_HIDES
       ) {
-        console.log("you won!");
+        let vm = this.$parent
+        while(vm) {
+          vm.$emit('victory')
+          vm = vm.$parent
+        }
       } else {
         this.message = "You don't have the required items to get a diploma.";
       }

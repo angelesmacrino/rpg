@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!gameIsOver">
+  <div v-if="!gameIsOver  && !gameWon">
     <div class="game-title">
       <h1>Yet another RPG</h1>
     </div>
@@ -58,7 +58,7 @@
       {{ lookingAtCharacter ? "M" : "C" }}
     </button>
   
-    <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" />
+    <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" @victory="victory" />
     <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
     </div>
     <BattleScreen
@@ -79,6 +79,10 @@
     v-if="gameIsOver" 
     @restartGame="restartGame" 
   />
+  <GameWon 
+    v-if="gameWon" 
+    @restartGame="restartGame"
+  />
 </template>
 
 <script>
@@ -87,6 +91,7 @@ import BattleScreen from "./components/BattleScreen.vue";
 import Character from "./components/Character.vue";
 import AfterBattleModal from "./components/AfterBattleModal.vue";
 import GameOver from "./components/GameOver.vue";
+import GameWon from "./components/GameWon.vue";
 import CurrentLocationInfoAndStats from "./components/CurrentLocationInfoAndStats.vue";
 import { useCharacterStore } from "@/stores/character";
 import { mapState, mapActions } from "pinia";
@@ -109,6 +114,7 @@ export default {
     Character,
     AfterBattleModal,
     GameOver,
+    GameWon,
     CurrentLocationInfoAndStats
   },
   data() {
@@ -118,10 +124,14 @@ export default {
       afterBattleModal: false,
       gameIsOver: false,
       lookingAtCharacter: false,
-      after_battle_event: ""
+      after_battle_event: "",
+      gameWon: false
     };
   },
   methods: {
+    victory() {
+      this.gameWon = true
+    },
     ...mapActions(useCharacterStore, ["gainXp", "gainGold"]),
     toggleCharacterStats() {
       this.lookingAtCharacter = !this.lookingAtCharacter;
