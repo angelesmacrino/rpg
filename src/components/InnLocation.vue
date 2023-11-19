@@ -52,17 +52,22 @@ export default {
     ]),
     tryToRest(amount) {
       let daysToRest = amount;
-      let discount = 1 * (daysToRest - 1);
-      if (
-        this.characterStore.character.gold >=
-        (this.COST_PER_NIGHT - discount) * daysToRest
-      ) {
-        this.spendGold((this.COST_PER_NIGHT - discount) * daysToRest);
-        this.healAmount(10 * daysToRest);
-        this.message = TheCity.inn.messages.rested;
+      let cost = this.calculateCost(daysToRest);
+
+      if (this.characterStore.character.gold >= cost) {
+        this.restSuccessfully(cost, daysToRest);
       } else {
         this.message = TheCity.inn.messages.notEnoughGold;
       }
+    },
+    calculateCost(days) {
+      let discount = 1 * (days - 1);
+      return (this.COST_PER_NIGHT - discount) * days;
+    },
+    restSuccessfully(cost, days) {
+      this.spendGold(cost);
+      this.healAmount(10 * days);
+      this.message = TheCity.inn.messages.rested;
     },
     leaveInn() {
       this.$emit("leaveInn");

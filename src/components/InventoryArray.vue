@@ -55,21 +55,17 @@ export default {
   },
   methods: {
     setItemImg(item) {
-      if (item === "s_potion") {
-        return s_potion;
-      } else if (item === "m_potion") {
-        return m_potion;
-      } else if (item === "l_potion") {
-        return l_potion;
-      } else if (item === "w_sword") {
-        return w_sword;
-      } else if (item === "g_tooth") {
-        return g_tooth;
-      } else if (item === "orc_ear") {
-        return orc_ear;
-      } else if (item === "troll_hide") {
-        return troll_hide;
-      }
+      const itemImages = {
+      "s_potion": s_potion,
+      "m_potion": m_potion,
+      "l_potion": l_potion,
+      "w_sword": w_sword,
+      "g_tooth": g_tooth,
+      "orc_ear": orc_ear,
+      "troll_hide": troll_hide
+    };
+
+  return itemImages[item];
     },
     useItem(item) {
       if ([ "s_potion", "m_potion", "l_potion" ].includes(item)) {

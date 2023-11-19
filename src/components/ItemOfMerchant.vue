@@ -28,13 +28,13 @@ export default {
       this.$emit("getItemInfo", item);
     },
     setItemImg(item) {
-      if (item === "s_potion") {
-        return s_potion;
-      } else if (item === "m_potion") {
-        return m_potion;
-      } else if (item === "l_potion") {
-        return l_potion;
-      }
+          const itemImages = {
+        "s_potion": s_potion,
+        "m_potion": m_potion,
+        "l_potion": l_potion
+      };
+
+      return itemImages[item];
     }
   }
 };

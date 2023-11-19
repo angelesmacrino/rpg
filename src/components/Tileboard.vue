@@ -131,27 +131,19 @@ export default {
     },
     moveCharacter(e) {
       if (!this.inBattle) {
-        if (
-          ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)
-        ) {
+        const moveFunctions = {
+          "ArrowUp": this.moveUp,
+          "ArrowDown": this.moveDown,
+          "ArrowLeft": this.moveLeft,
+          "ArrowRight": this.moveRight
+        };
+
+        if (Object.keys(moveFunctions).includes(e.key)) {
           e?.preventDefault?.();
-        }
-        switch (e.key) {
-          case "ArrowUp":
-            this.moveUp();
-            break;
-          case "ArrowDown":
-            this.moveDown();
-            break;
-          case "ArrowLeft":
-            this.moveLeft();
-            break;
-          case "ArrowRight":
-            this.moveRight();
-            break;
+          moveFunctions[e.key]();
         }
       }
-    },
+    }
   },
 };
 </script>
