@@ -96,6 +96,7 @@ import m_potion from "../assets/img/m_potion.jpg";
 import l_potion from "../assets/img/l_potion.jpg";
 import goblin from "../assets/img/goblin.jpg";
 import orc from "../assets/img/orc.jpg";
+import troll from "../assets/img/troll.jpg";
 
 import { useCharacterStore } from "@/stores/character";
 import { mapState, mapActions } from "pinia";
@@ -161,6 +162,8 @@ export default {
         return goblin;
       } else if (item === "orc") {
         return orc;
+      } else if (item === "troll") {
+        return troll;
       }
     },
     remainingHealthPotions(potion) {
