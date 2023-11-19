@@ -28,7 +28,7 @@
     </div>
     <div class="sidesRow">
       <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
-        <img :src="setImg('left_arrow')" alt="up_arrow" />
+        <img :src="setImg('left_arrow')" alt="left_arrow" />
       </button>
       <div class="movementCell">
   
