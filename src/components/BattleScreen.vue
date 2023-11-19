@@ -152,19 +152,16 @@ export default {
   },
   methods: {
     setItemImg(item) {
-      if (item === "s_potion") {
-        return s_potion;
-      } else if (item === "m_potion") {
-        return m_potion;
-      } else if (item === "l_potion") {
-        return l_potion;
-      } else if (item === "goblin") {
-        return goblin;
-      } else if (item === "orc") {
-        return orc;
-      } else if (item === "troll") {
-        return troll;
-      }
+      const itemImages = {
+        "s_potion": s_potion,
+        "m_potion": m_potion,
+        "l_potion": l_potion,
+        "goblin": goblin,
+        "orc": orc,
+        "troll": troll
+      };
+
+      return itemImages[item];
     },
     remainingHealthPotions(potion) {
       let potions = 0;
@@ -184,15 +181,21 @@ export default {
     },
     tryToFlee() {
       if (this.probabilityOfCharacterFleeing()) {
-        this.battleInfo += "You escaped!\n";
-        this.setTurnsToFalse();
-        setTimeout(() => {
-          this.$emit("fleedBattle");
-        }, 1000);
+        this.handleSuccessfulEscape();
       } else {
-        this.battleInfo += "You couldn't escape!\n";
-        this.swapTurns();
+        this.handleFailedEscape();
       }
+    },
+    handleSuccessfulEscape() {
+      this.battleInfo += "You escaped!\n";
+      this.setTurnsToFalse();
+      setTimeout(() => {
+        this.$emit("fleedBattle");
+      }, 1000);
+    },
+    handleFailedEscape() {
+      this.battleInfo += "You couldn't escape!\n";
+      this.swapTurns();
     },
     probabilityOfCharacterFleeing() {
       let fleeChance = this.setFleeChance(
@@ -203,10 +206,14 @@ export default {
       return randomNumber < fleeChance;
     },
     setFleeChance(playerSpeed, monsterSpeed) {
-      console.log(playerSpeed, monsterSpeed);
       if (playerSpeed === monsterSpeed) {
         return 50;
-      } else if (playerSpeed > monsterSpeed) {
+      } else {
+        return this.calculateFleeChance(playerSpeed, monsterSpeed);
+      }
+    },
+    calculateFleeChance(playerSpeed, monsterSpeed) {
+      if (playerSpeed > monsterSpeed) {
         return 75 + (playerSpeed - monsterSpeed) / (2 * playerSpeed);
       } else {
         return 25 - (monsterSpeed - playerSpeed) / (2 * monsterSpeed);
@@ -228,22 +235,26 @@ export default {
     setTurnsToFalse() {
       this.playerTurn = false;
       this.monsterTurn = false;
-      console.log("setee los turnos to false");
     },
     swapTurns() {
       this.playerTurn = !this.playerTurn;
       this.monsterTurn = !this.monsterTurn;
     },
     monsterAttack() {
-      const final_damage =
-        this.monster.attack + Math.round((Math.random() - 0.5) * 2);
-      if (this.characterStore.character.health - final_damage <= 0) {
+      const finalDamage = this.calculateDamage();
+      this.updateHealth(finalDamage);
+      this.battleInfo += `${this.monster.name} attacks!. It does ${finalDamage} damage\n`;
+      this.swapTurns();
+    },
+    calculateDamage() {
+      return this.monster.attack + Math.round((Math.random() - 0.5) * 2);
+    },
+    updateHealth(damage) {
+      if (this.characterStore.character.health - damage <= 0) {
         this.characterStore.character.health = 0;
       } else {
-        this.characterStore.character.health -= final_damage;
+        this.characterStore.character.health -= damage;
       }
-      this.battleInfo += `${this.monster.name} attacks!. It does ${final_damage} damage\n`;
-      this.swapTurns();
     },
     decideInitialTurn() {
       if (this.characterStore.character.speed >= this.monster.speed) {
