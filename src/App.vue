@@ -209,7 +209,6 @@ export default {
       this.gameIsOver = true;
     },
     restartGame() {
-      this.gameIsOver = false;
       window.location.reload();
     },
     moveByClick(key) {
