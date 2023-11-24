@@ -1,7 +1,7 @@
 <template>
   <div class="battleScreenOverlay" v-if="ready">
-    <div class="battleScreen nes-container is-rounded">
-      <div v-if="!victoryScreen">
+    <div v-if="!victoryScreen" class="battleScreen nes-container is-rounded">
+      <div >
         <h3>{{ monster.name }} lvl. {{ monster.level }}</h3>
         <div class="monsterContainer">
           <div class="healthAndMessagesContainer">
@@ -78,12 +78,14 @@
           </div>
         </div>
       </div>
-      <div class="victoryScreen nes-container is-rounded" v-else>
-        <h1>Victory!</h1>
+    </div>
+    <div v-else class="victoryScreen nes-container is-rounded">
+      <h1>Victory!</h1>
+      <span>
         <h3>You gained {{ monster.exp }} xp</h3>
         <h3>You gained {{ monster.gold }} gold</h3>
-        <button class="nes-btn" @click="finishBattle()">Continue</button>
-      </div>
+      </span>
+      <button class="nes-btn" @click="finishBattle()">Continue</button>
     </div>
   </div>
 </template>
@@ -322,8 +324,12 @@ export default {
     align-items: center;
   }
   .buttonsContainer button {
-  padding: 0!important;
-}
+    padding: 0!important;
+    font-size: 0.8rem!important;
+  }
+  .victoryScreen h3{
+    font-size: 0.9rem!important;
+  }
 }
 @media (min-width: 768px) {
   .battleScreen {
@@ -348,14 +354,14 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  max-width: 100%;
   height: 400px;
   padding: 20px;
   background-color: white;
   z-index: 6000;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 

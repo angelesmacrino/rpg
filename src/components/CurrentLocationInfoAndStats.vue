@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     setLocation() {
-      console.log(locations.locations[this.characterStore.currentTerrain]);
       this.locationName =
         locations.locations[this.characterStore.currentTerrain].name;
       this.locationDescription =
