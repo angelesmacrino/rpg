@@ -327,9 +327,14 @@ export default {
     padding: 0!important;
     font-size: 0.8rem!important;
   }
+  .victoryScreen {
+    width: 90%;
+  }
   .victoryScreen h3{
     font-size: 0.9rem!important;
   }
+
+
 }
 @media (min-width: 768px) {
   .battleScreen {

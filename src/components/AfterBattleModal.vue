@@ -57,4 +57,10 @@ export default {
   align-content: center;
   z-index: 10000000;
 }
+
+@media (max-width: 768px) {
+  .levelUpScreen {
+    width: 90%;
+  }
+}
 </style>
