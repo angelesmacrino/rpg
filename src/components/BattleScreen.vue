@@ -315,6 +315,13 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 992px) {
+  .victoryScreen {
+    width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   .battleScreen {
     width: 90%;

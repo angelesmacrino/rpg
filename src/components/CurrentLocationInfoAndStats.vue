@@ -2,9 +2,9 @@
   <div id="locationDiv">
     <h2>You are in {{ locationName }}</h2>
     <div class="nes-container is-rounded">
-      <h3>
+      <h6>
         {{ locationDescription }}
-      </h3>
+      </h6>
     </div>
     <CityActions v-if="characterStore.currentTerrain === 'C'" />
   </div>

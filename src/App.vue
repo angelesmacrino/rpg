@@ -1,80 +1,100 @@
 <template>
-  <div v-if="isGameActive">
-    <div class="game-title">
-      <h1>Yet another RPG</h1>
-    </div>
-   <div class="gameContainer">
-    <div class="nes-container">
-    <Tileboard
-      :ref="'tileBoardRef'"
-      @monsterBattle="monsterBattle"
-      :inBattle="inBattle"
-    />
-    </div>
-    <div
-      class="infoScreen"
-    >
-    <div class="movementGrid">
-    <div class="upRow">
-      <div class="movementCell">
-  
+  <div class="container">
+    <div v-if="isGameActive">
+
+      <div class="row">
+        <div class="col text-center">
+          <h1>Yet another RPG</h1>
+        </div>
       </div>
-      <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
-        <img :src="getImage('up_arrow')" alt="up_arrow" />
-      </button>
-      <div class="movementCell">
-  
-      </div>
-    </div>
-    <div class="sidesRow">
-      <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
-        <img :src="getImage('left_arrow')" alt="left_arrow" />
-      </button>
-      <div class="movementCell">
-  
-      </div>
-      <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
-        <img :src="getImage('right_arrow')" alt="right_arrow" />
-  
-      </button>
-    </div>
-    <div class="downRow">
-      <div class="movementCell">
+
+      <div class="row mt-2">
+        <div class="col col-md-7 d-flex flex-row justify-content-center">
+            <Tileboard
+              :ref="'tileBoardRef'"
+              @monsterBattle="monsterBattle"
+              :inBattle="inBattle"
+            />
+          </div>
+        <div class="col col-md-5 d-flex flex-column align-items-center justify-content-center">
+
+          <div class="movementGrid">
+            <div class="upRow">
+              <div class="movementCell">
+          
+              </div>
+              <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
+                <img :src="getImage('up_arrow')" alt="up_arrow" />
+              </button>
+              <div class="movementCell">
+          
+              </div>
+            </div>
+            <div class="sidesRow">
+              <button @click="moveByClick('ArrowLeft')" class="movementCell nes-btn">
+                <img :src="getImage('left_arrow')" alt="left_arrow" />
+              </button>
+              <div class="movementCell">
+          
+              </div>
+              <button @click="moveByClick('ArrowRight')" class="movementCell nes-btn">
+                <img :src="getImage('right_arrow')" alt="right_arrow" />
+          
+              </button>
+            </div>
+            <div class="downRow">
+              <div class="movementCell">
+                
+              </div>
+              <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
+                <img :src="getImage('down_arrow')" alt="down_arrow" />
+              </button>
+              <div class="movementCell">
+                
+              </div>
+            </div>
+          </div>
         
+          <div class="infoScreen">
+            <button
+              id="charButton"
+              class="nes-btn is-warning"
+              @click="toggleCharacterStats()"
+            >
+              {{ lookingAtCharacter ? "M" : "C" }}
+            </button>
+            <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" @victory="victory" />
+            <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
+          </div>
+
+        </div>
       </div>
-      <button @click="moveByClick('ArrowDown')" class="movementCell nes-btn">
-        <img :src="getImage('down_arrow')" alt="down_arrow" />
-      </button>
-      <div class="movementCell">
-        
+
+      <div class="row">
+        <div class="col">
+          <footer class="">
+            © 2023 - Mishulina. All rights reserved. CSS by 
+            <a href="https://nostalgic-css.github.io/NES.css/" rel="noreferrer nofollow" target="_blank">
+              NES.css
+            </a>
+          </footer>
+        </div>
       </div>
+
+      <BattleScreen
+      v-if="inBattle"
+      :monster="battledMonster"
+      @finishBattle="finishBattle()"
+      @gameOver="gameOver()"
+      @fleedBattle="fleedBattle()"
+      />
+      <AfterBattleModal
+      v-if="afterBattleModal"
+      :event="after_battle_event"
+      @closeModal="closeAfterBattleModal"
+      />
     </div>
-    </div>
-    <button
-      id="charButton"
-      class="nes-btn is-warning"
-      @click="toggleCharacterStats()"
-    >
-      {{ lookingAtCharacter ? "M" : "C" }}
-    </button>
-  
-    <CurrentLocationInfoAndStats v-if="!lookingAtCharacter" @victory="victory" />
-    <Character v-show="lookingAtCharacter" @levelUp="levelUpModal()" />
-    </div>
-   
-    <BattleScreen
-    v-if="inBattle"
-    :monster="battledMonster"
-    @finishBattle="finishBattle()"
-    @gameOver="gameOver()"
-    @fleedBattle="fleedBattle()"
-    />
-    <AfterBattleModal
-    v-if="afterBattleModal"
-    :event="after_battle_event"
-    @closeModal="closeAfterBattleModal"
-    />
-    </div>
+
   </div>
   <GameOver 
     v-if="gameIsOver" 
@@ -84,12 +104,7 @@
     v-if="gameWon" 
     @restartGame="restartGame"
   />
-  <footer>
-    © 2023 - Mishulina. All rights reserved. CSS by 
-    <a href="https://nostalgic-css.github.io/NES.css/" rel="noreferrer nofollow" target="_blank">
-      NES.css
-    </a>
-  </footer>
+ 
 </template>
 
 <script>
@@ -251,7 +266,9 @@ export default {
   z-index: 1000;
   width: 30px;
   height: 25px;
-  font-size: 0.5rem
+  font-size: 0.5rem;
+  top: 0;
+  left: 0;
 }
 .p-0 {
   padding: 0 !important;
@@ -283,7 +300,7 @@ export default {
   justify-content: space-between;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   .buttonsGroup {
     flex-direction: column; 
   }

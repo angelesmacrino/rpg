@@ -1,6 +1,6 @@
 <template>
   <div class="tileWorld">
-    <div v-for="(row, x) in tilesMatrix" class="row" :key="x">
+    <div v-for="(row, x) in tilesMatrix" class="tileRow" :key="x">
       <div v-for="(cell, y) in row" class="cell" :key="[x, y]">
         <Tile :ref="tilesMatrix[x][y]" :coordinates="[x, y]" :tile="cell">
           <div
@@ -172,7 +172,7 @@ export default {
     height: 22rem;
   }
 }
-.row {
+.tileRow {
   display: flex;
   flex-direction: row;
   align-items: center;
