@@ -333,6 +333,7 @@ export default {
   .buttonsContainer button {
     padding: 0!important;
     font-size: 0.8rem!important;
+    max-height: 1.8rem!important;
   }
   .victoryScreen {
     width: 90%;
