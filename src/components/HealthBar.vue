@@ -1,5 +1,5 @@
 <template>
-  <small class="monsterHealthNumber">
+  <small class="monsterHealthNumber position-absolute">
     {{ health }} /
     {{ maxHealth }}
   </small>
@@ -31,28 +31,11 @@ progress[value]::-webkit-progress-value {
   border-radius: 2px;
 }
 
-.monsterImg {
-  align-self: center;
-  width: 200px;
-  padding: 10px;
-}
+
 .monsterHealthNumber {
-  position: absolute;
   left: 15px;
   top: 3px;
   font-weight: 800;
   color: black;
-}
-.statsContainer {
-  display: inline-block;
-}
-.playerAndMessageContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
-  height: 100px;
-
-  width: 100%;
 }
 </style>
