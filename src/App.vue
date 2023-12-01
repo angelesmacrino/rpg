@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fuid">
     <div v-if="isGameActive">
 
       <div class="row mt-2">
@@ -8,15 +8,15 @@
         </div>
       </div>
 
-      <div class="row mt-2">
-        <div class="col col-md-7 d-flex flex-row justify-content-center">
+      <div class="row mt-2 d-flex alig-items-center justify-content-center">
+        <div class="col-lg-5 col-md-7 col-sm-6 d-flex flex-row justify-content-center">
             <Tileboard
               :ref="'tileBoardRef'"
               @monsterBattle="monsterBattle"
               :inBattle="inBattle"
             />
           </div>
-        <div class="col col-md-5 d-flex flex-column align-items-center justify-content-center">
+        <div class="col-lg-5 col-md-5 col-sm-6 d-flex flex-column align-items-center justify-content-center">
 
           <div class="movementGrid">
             <div class="upRow">
