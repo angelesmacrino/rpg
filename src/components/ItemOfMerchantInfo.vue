@@ -1,7 +1,7 @@
 <template>
   <p style="margin: 0px">
     <b> {{ item.name }}: {{ item.price }} gp </b>
-    <button class="nes-btn p-0" :disabled="!canBuyItem()" @click="buyItem()">Buy</button>
+    <button class="nes-btn px-0 py-0" :disabled="!canBuyItem()" @click="buyItem()">Buy</button>
   </p>
   <p class="smallerParagraph">{{ item.description }}</p>
 </template>

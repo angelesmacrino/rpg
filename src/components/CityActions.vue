@@ -10,7 +10,7 @@
   </div>
   <div v-else>
     <div
-      class="nes-container with-title is-centered statsContainer cityActionsContainer"
+      class="nes-container with-title is-centered statsContainer d-flex flex-column"
     >
       <p class="title">
         <b> {{ currentLocationTitle }} </b>
@@ -84,4 +84,7 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+
+</style>

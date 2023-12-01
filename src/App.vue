@@ -18,9 +18,9 @@
           </div>
         <div class="col-lg-5 col-md-5 col-sm-6 d-flex flex-column align-items-center justify-content-center">
 
-          <div class="movementGrid">
+          <div class="d-flex flex-column align-items-center justify-content-center movementGrid">
             <div class="upRow">
-              <div class="movementCell">
+              <div class="d-flex align-items-center justify-content-center movementCell">
           
               </div>
               <button @click="moveByClick('ArrowUp')" class="movementCell nes-btn">
@@ -58,7 +58,7 @@
           <div class="infoScreen">
             <button
               id="charButton"
-              class="nes-btn is-warning"
+              class="nes-btn is-warning position-absolute top-0 start-0"
               @click="toggleCharacterStats()"
             >
               {{ lookingAtCharacter ? "M" : "C" }}
@@ -255,31 +255,17 @@ export default {
 };
 </script>
 <style>
-.nowrap {
-  white-space: nowrap;
-}
+
 #app {
   width: 77%;
 }
 #charButton {
-  position: absolute;
   z-index: 1000;
-  width: 30px;
-  height: 25px;
+  
   font-size: 0.5rem;
-  top: 0;
-  left: 0;
 }
-.p-0 {
-  padding: 0 !important;
-}
-.m-0 {
-  margin: 0 !important;
-}
-.smallerParagraph {
-  font-size: 0.8rem;
-  display: inline;
-}
+
+
 .nes-btn:disabled {
   background-color: #e7e7e7;
   cursor: not-allowed;
@@ -331,10 +317,6 @@ export default {
   color: black;
 }
 
-.cityActionsContainer {
-  display: flex;
-  flex-direction: column;
-}
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
   .nes-container.is-rounded,
@@ -352,79 +334,13 @@ export default {
 }
 </style>
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 
 .infoScreen {
   max-width: 600px;
   padding: 15px; 
 }
 
-.movementGrid {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+
 .movementGrid div {
   display: flex
 }
@@ -435,19 +351,5 @@ nav a:first-of-type {
 .movementCell img {
   width: 30px;
 }
-
-.movementCell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.gameContainer .nes-container {
-  padding: 0
-}
-
-.game-title {
-  text-align: center;
-}
-
 
 </style>
