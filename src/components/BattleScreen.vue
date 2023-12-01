@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="victoryScreen nes-container is-rounded position-absolute bg-white d-flex flex-direction-column justify-content-evenly align-items-center">
+    <div v-else class="victoryScreen nes-container is-rounded position-absolute bg-white d-flex flex-column justify-content-evenly align-items-center">
       <h1>Victory!</h1>
       <span>
         <h3>You gained {{ monster.exp }} xp</h3>

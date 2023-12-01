@@ -1,10 +1,10 @@
 <template>
-  <div class="endGameContainer">
+  <div class="endGameContainer text-center d-flex flex-column justify-content-center align-items-center">
     <h1>
       You died
     </h1>
     <div class="nes-container">
-      <img src="../assets/img/rip.jpg" alt="rip" />
+      <img class="img-fuid" src="../assets/img/rip.jpg" alt="rip" />
     </div>
     <button class="nes-btn" @click="restartGame">Try again?</button>
   </div>
@@ -23,18 +23,6 @@ export default {
 </script>
 
 <style scoped>
-  .endGameContainer {
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .endGameContainer img {
-    max-width: 100%;
-    height: auto;
-  }
 
   .endGameContainer button {
     margin-top: 15px;
