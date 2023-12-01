@@ -348,7 +348,7 @@ export default {
   text-align: center;
   text-wrap: nowrap;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 </style>
 <style scoped>
