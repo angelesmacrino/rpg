@@ -1,5 +1,5 @@
 <template>
-  <div class="tile bg-white text-center w-100 h-100" :style="{ backgroundImage: `url(${setTileTypeClass()})` }">
+  <div class="tile d-flex flex-row align-items-center bg-white text-center w-100 h-100" :style="{ backgroundImage: `url(${setTileTypeClass()})` }">
     <slot></slot>
   </div>
 </template>

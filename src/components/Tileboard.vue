@@ -1,7 +1,7 @@
 <template>
   <div class="tileWorld">
-    <div v-for="(row, x) in tilesMatrix" class="tileRow" :key="x">
-      <div v-for="(cell, y) in row" class="cell" :key="[x, y]">
+    <div v-for="(row, x) in tilesMatrix" class="tileRow d-flex flex-row align-items-center w-100 bg-white" :key="x">
+      <div v-for="(cell, y) in row" class="cell w-100 h-100 bg-white" :key="[x, y]">
         <Tile :ref="tilesMatrix[x][y]" :coordinates="[x, y]" :tile="cell">
           <div
             v-if="coordinates[0] === x && coordinates[1] === y"
@@ -173,22 +173,9 @@ export default {
   }
 }
 .tileRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
   height: 10%;
-  background-color: #fff;
 }
 .cell {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
   border: 1px solid #ddd;
-}
-.tile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 </style>
