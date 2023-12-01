@@ -1,6 +1,6 @@
 <template>
-  <div class="battleScreenOverlay" v-if="ready">
-    <div v-if="!victoryScreen" class="battleScreen nes-container is-rounded">
+  <div class="battleScreenOverlay position-fixed w-100 h-100 top-0 start-0 end-0 bottom-0" v-if="ready">
+    <div v-if="!victoryScreen" class="battleScreen nes-container is-rounded position-absolute bg-white d-flex flex-column justify-content-start align-content-center">
       <div class="row">
         <div class="col">
           <h3>{{ monster.name }} lvl. {{ monster.level }}</h3>
@@ -50,7 +50,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="buttonsContainer">
+          <div class="buttonsContainer w-100 d-flex flex-row justify-content-between align-items-baseline">
             <button
               class="playerActionButton nes-btn nowrap"
               :disabled="!playerTurn"
@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="victoryScreen nes-container is-rounded">
+    <div v-else class="victoryScreen nes-container is-rounded position-absolute bg-white d-flex flex-direction-column justify-content-evenly align-items-center">
       <h1>Victory!</h1>
       <span>
         <h3>You gained {{ monster.exp }} xp</h3>
@@ -304,35 +304,17 @@ export default {
   opacity: 0.5;
 }
 .battleScreenOverlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3000;
   cursor: pointer;
 }
 .battleScreen {
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  background-color: white;
   z-index: 4000;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-content: center;
 }
-.monsterContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
 @media (max-width: 992px) {
   .victoryScreen {
     width: 90%;
@@ -342,10 +324,6 @@ export default {
 @media (max-width: 768px) {
   .battleScreen {
     width: 90%;
-  }
-  .monsterContainer {
-    flex-direction: column;
-    align-items: center;
   }
   .buttonsContainer button {
     padding: 0!important;
@@ -365,50 +343,25 @@ export default {
   .battleScreen {
     width: 600px;
   }
-  .monsterContainer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }
 .buttonsContainer {
   margin-top: 5px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
 }
 
 .victoryScreen {
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 100%;
   height: 400px;
   padding: 20px;
-  background-color: white;
   z-index: 6000;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 .playerActionButton {
   margin-left: 5px;
 }
 
-.messageScreen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 250px;
-}
 progress[value] {
   /* Reset the default appearance */
   position: relative;
@@ -440,26 +393,6 @@ progress[value]::-webkit-progress-value {
   font-weight: 800;
   color: black;
 }
-.statsContainer {
-  display: inline-block;
-}
-.playerAndMessageContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  /* height: 100px; */
-  width: 100%;
-}
-.healthAndMessagesContainer {
-  width: 98%;
-}
-.healthAndMessagesContainer textarea {
-  width: 100%;
-  height: 137px;
-  resize: none;
-}
-
 button img {
   width: 25px
 }

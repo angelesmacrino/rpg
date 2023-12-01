@@ -1,5 +1,5 @@
 <template>
-  <div class="levelUpScreen nes-container is-rounded">
+  <div class="levelUpScreen nes-container is-rounded position-absolute bg-white d-flex flex-column justify-content-start align-content-center">
     <h4>{{ afterBattle[event] }}</h4>
     <ul v-if="event === 'level_up'">
       <li>Health: + {{ characterStore.character.max_health_per_level }}</li>
@@ -42,18 +42,12 @@ export default {
 
 <style scoped>
 .levelUpScreen {
-  position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
   /* height: 200px; */
   padding: 20px!important;
-  background-color: white;
   z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-content: center;
   z-index: 10000000;
 }
 
