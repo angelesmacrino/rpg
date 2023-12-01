@@ -1,11 +1,17 @@
 <template>
-    <div class="endGameContainer">
-      <h1>
-        You now are a Certified Adventurer™!!
-      </h1>
-     
-      <button class="nes-btn" @click="restartGame">Try again?</button>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h1>
+          You now are a Certified Adventurer™!!
+        </h1>
+       
+        <button class="nes-btn" @click="restartGame">Try again?</button>
+        <div class="endGameContainer">
+        </div>
+      </div>
     </div>
+  </div>
   </template>
   
   <script>

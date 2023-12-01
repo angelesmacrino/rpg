@@ -13,9 +13,9 @@ import { mapState } from "pinia";
 export default {
   data() {
     return {
-      GOBLIN_TOOTHS: 25,
-      ORC_EARS: 15,
-      TROLL_HIDES: 5,
+      GOBLIN_TOOTHS: 0,
+      ORC_EARS: 0,
+      TROLL_HIDES: 0,
       message: "",
     };
   },
