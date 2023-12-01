@@ -344,6 +344,11 @@ export default {
     border-image-repeat: stretch !important;
   }
 }
+.battleScreen  h3 {
+  text-align: center;
+  text-wrap: nowrap;
+  font-weight: 600;
+}
 </style>
 <style scoped>
 header {
@@ -442,4 +447,6 @@ nav a:first-of-type {
 .game-title {
   text-align: center;
 }
+
+
 </style>

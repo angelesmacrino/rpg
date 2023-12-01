@@ -30,10 +30,6 @@ progress[value]::-webkit-progress-value {
   background-color: red;
   border-radius: 2px;
 }
-.battleScreen h3 {
-  text-align: center;
-  font-weight: 600;
-}
 
 .monsterImg {
   align-self: center;

@@ -43,7 +43,6 @@ export default {
 <style scoped>
 .levelUpScreen {
   position: absolute;
-  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
@@ -60,7 +59,14 @@ export default {
 
 @media (max-width: 768px) {
   .levelUpScreen {
-    width: 90%;
+    top: 30%;
+    width: 100%
+  }
+}
+
+@media (min-width: 769px) {
+  .levelUpScreen {
+    top: 50%;
   }
 }
 </style>
