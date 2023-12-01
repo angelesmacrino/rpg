@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" :style="{ backgroundImage: `url(${setTileTypeClass()})` }">
+  <div class="tile bg-white text-center w-100 h-100" :style="{ backgroundImage: `url(${setTileTypeClass()})` }">
     <slot></slot>
   </div>
 </template>
@@ -40,25 +40,9 @@ export default {
 <style scoped>
 
 .tile {
-  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  width: 100%;
-  height: 100%;
   background-size: 100% auto;
-}
-.tileCity {
-  background-color: #91bdff;
-}
-.tilePlains {
-
-}
-.tileMountains {
-  background-color: #7a4e0a;
-}
-.tileForest {
-  background-color: #0a7a4e;
 }
 </style>
