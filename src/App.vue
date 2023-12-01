@@ -2,7 +2,7 @@
   <div class="container">
     <div v-if="isGameActive">
 
-      <div class="row">
+      <div class="row mt-2">
         <div class="col text-center">
           <h1>Yet another RPG</h1>
         </div>
@@ -348,6 +348,7 @@ export default {
   text-align: center;
   text-wrap: nowrap;
   font-weight: 600;
+  font-size: 1.5rem;
 }
 </style>
 <style scoped>
