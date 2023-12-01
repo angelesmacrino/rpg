@@ -1,38 +1,55 @@
 <template>
   <div class="battleScreenOverlay" v-if="ready">
     <div v-if="!victoryScreen" class="battleScreen nes-container is-rounded">
-      <div >
-        <h3>{{ monster.name }} lvl. {{ monster.level }}</h3>
-        <div class="monsterContainer">
-          <div class="healthAndMessagesContainer">
-            <HealthBar
-              :health="remainingMonsterHealth"
-              :maxHealth="monster.health"
-            />
-            <textarea
-              class="nes-textarea"
-              name="textarea"
-              rows="10"
-              disabled
-              v-model="battleInfo"
-            />
-          </div>
+      <div class="row">
+        <div class="col">
+          <h3>{{ monster.name }} lvl. {{ monster.level }}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <HealthBar
+            :health="remainingMonsterHealth"
+            :maxHealth="monster.health"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6 col-md-8 col-sm-6">
+          <textarea
+            class="nes-textarea"
+            name="textarea"
+            rows="5"
+            disabled
+            v-model="battleInfo"
+          />
+        </div>
+        <div class="col-12 col-lg-6 col-md-4 col-sm-6 d-flex justify-content-center">
           <img
-            class="monsterImg"
+            class="img-fuid monsterImg"
             :src="setItemImg(monster.name.toLowerCase())"
             :alt="monster.name"
           />
         </div>
-
-        <h3>
-          {{ characterStore.character.name }} lvl.
-          {{ characterStore.character.level }}
-        </h3>
-        <div class="playerAndMessageContainer">
+      </div>
+      <div class="row">
+        <div class="col">
+          <h3>
+            {{ characterStore.character.name }} lvl.
+            {{ characterStore.character.level }}
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <HealthBar
             :health="characterStore.character.health"
             :maxHealth="characterStore.character.max_health"
           />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <div class="buttonsContainer">
             <button
               class="playerActionButton nes-btn nowrap"
@@ -333,7 +350,7 @@ export default {
   .buttonsContainer button {
     padding: 0!important;
     font-size: 0.8rem!important;
-    max-height: 1.8rem!important;
+    max-height: 1.8rem!;
   }
   .victoryScreen {
     width: 90%;
@@ -413,7 +430,7 @@ progress[value]::-webkit-progress-value {
 
 .monsterImg {
   align-self: center;
-  width: 200px;
+  width: 150px;
   padding: 20px 0px 20px 20px;
 }
 .monsterHealthNumber {
