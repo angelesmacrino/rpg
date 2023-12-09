@@ -397,7 +397,6 @@ progress[value]::-webkit-progress-value {
 .monsterImg {
   align-self: center;
   width: 150px;
-  padding: 20px 0px 20px 20px;
 }
 .monsterHealthNumber {
   position: absolute;
