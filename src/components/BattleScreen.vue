@@ -47,10 +47,8 @@
             :maxHealth="characterStore.character.max_health"
           />
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="buttonsContainer w-100 d-flex flex-row justify-content-between align-items-baseline">
+        <div class="col d-flex">
+          <div class="buttonsContainer w-100 d-flex flex-row justify-content-between align-items-end">
             <button
               class="playerActionButton nes-btn nowrap"
               :disabled="!playerTurn"
@@ -95,6 +93,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <div v-else class="victoryScreen nes-container is-rounded position-absolute bg-white d-flex flex-column justify-content-evenly align-items-center">
       <h1>Victory!</h1>
@@ -344,9 +343,7 @@ export default {
     width: 600px;
   }
 }
-.buttonsContainer {
-  margin-top: 5px;
-}
+
 
 .victoryScreen {
   top: 50%;
