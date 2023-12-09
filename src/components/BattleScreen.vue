@@ -41,13 +41,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-12 col-lg-12 col-md-3 col-sm-6">
           <HealthBar
             :health="characterStore.character.health"
             :maxHealth="characterStore.character.max_health"
           />
         </div>
-        <div class="col d-flex">
+        <div class="col col-12 col-lg-12 col-md-9 col-sm-6 d-flex">
           <div class="buttonsContainer w-100 d-flex flex-row justify-content-between align-items-end">
             <button
               class="playerActionButton nes-btn nowrap"
@@ -96,12 +96,24 @@
 
     </div>
     <div v-else class="victoryScreen nes-container is-rounded position-absolute bg-white d-flex flex-column justify-content-evenly align-items-center">
-      <h1>Victory!</h1>
-      <span>
-        <h3>You gained {{ monster.exp }} xp</h3>
-        <h3>You gained {{ monster.gold }} gold</h3>
-      </span>
-      <button class="nes-btn" @click="finishBattle()">Continue</button>
+      <div class="row">
+        <div class="col">
+          <h4>Victory!</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span>
+            <h5>You gained {{ monster.exp }} xp</h5>
+            <h5>You gained {{ monster.gold }} gold</h5>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="nes-btn" @click="finishBattle()">Continue</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -349,11 +361,15 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 100%;
-  height: 400px;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
   padding: 20px;
   z-index: 6000;
+  text-align: center;
 }
+
+
 
 .playerActionButton {
   margin-left: 5px;
