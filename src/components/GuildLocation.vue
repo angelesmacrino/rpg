@@ -13,9 +13,9 @@ import { mapState } from "pinia";
 export default {
   data() {
     return {
-      GOBLIN_TOOTHS: 25,
-      ORC_EARS: 15,
-      TROLL_HIDES: 5,
+      GOBLIN_TOOTHS: 1,
+      ORC_EARS: 1,
+      TROLL_HIDES: 1,
       message: "",
     };
   },
@@ -45,7 +45,6 @@ export default {
           lootCounts[loot] += 1;
         }
       });
-
       if (
         lootCounts["g_tooth"] === this.GOBLIN_TOOTHS &&
         lootCounts["orc_ear"] === this.ORC_EARS &&
